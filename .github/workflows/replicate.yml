@@ -1,0 +1,26 @@
+# Builds the Cog image and pushes it to Replicate.
+# Needs repo secret REPLICATE_API_TOKEN and repo variable REPLICATE_MODEL
+# (e.g. r8.im/<user>/green-screen-remover). Run it from the Actions tab.
+name: Push to Replicate
+on:
+  workflow_dispatch:
+jobs:
+  push:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Free disk space
+        uses: jlumbroso/free-disk-space@v1.3.1
+        with:
+          tool-cache: false
+          docker-images: false
+      - uses: actions/checkout@v4
+      - name: Install Cog
+        run: |
+          sudo curl -fsSL -o /usr/local/bin/cog https://github.com/replicate/cog/releases/download/v0.23.1/cog_Linux_x86_64
+          sudo chmod +x /usr/local/bin/cog
+          cog --version
+      - name: Log in to Replicate
+        env:
+          REPLICATE_API_TOKEN: ${{ secrets.REPLICATE_API_TOKEN }}
+        run: echo "$REPLICATE_API_TOKEN" | cog login --token-stdin
+      - run: cog push ${{ vars.REPLICATE_MODEL }}
