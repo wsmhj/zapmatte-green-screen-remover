@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "zapmatte"
+version = "0.1.0"
+description = "Open-source green screen remover for video: transparent WebM, ProRes 4444, alpha matte"
+readme = "README.md"
+license = { text = "GPL-3.0-only" }
+requires-python = ">=3.10"
+dependencies = ["torch>=2.1", "torchvision>=0.16", "opencv-python-headless>=4.8", "numpy<2"]
+keywords = ["green screen", "chroma key", "video matting", "background removal", "transparent video"]
+classifiers = [
+  "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+  "Programming Language :: Python :: 3",
+  "Topic :: Multimedia :: Video",
+]
+
+[project.urls]
+Homepage = "https://zapmatte.com"
+Source = "https://github.com/wsmhj/zapmatte-green-screen-remover"
+
+[project.scripts]
+remove-green-screen = "zapmatte.cli:main"
+
+[tool.setuptools]
+packages = ["zapmatte"]
