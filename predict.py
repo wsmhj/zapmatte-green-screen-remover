@@ -24,14 +24,15 @@ class Predictor(BasePredictor):
     def setup(self) -> None:
         pipeline.model()  # downloads and loads RVM once
 
-    def predict(
+    def run(
         self,
         video: Path = Input(description="Video shot in front of a green, blue or teal screen. "
                                         "The first 10 seconds are processed at up to 720p."),
         output_format: str = Input(
             description="transparent_webm for web/OBS, prores_4444_mov for Premiere/After Effects/Final Cut/Resolve, "
                         "alpha_matte_mp4 for a black/white matte, mp4_on_color for a new solid background",
-            choices=list(FORMATS), default="transparent_webm"),
+            choices=["transparent_webm", "prores_4444_mov", "alpha_matte_mp4", "mp4_on_color"],
+            default="transparent_webm"),
         background_color: str = Input(description="Background colour for mp4_on_color", default="#ffffff"),
     ) -> Path:
         d = tempfile.mkdtemp()
