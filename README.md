@@ -74,8 +74,8 @@ pipeline.run("clip.mp4", {"webm": "out.webm", "matte": "matte.mp4"})
 ## Other ways to run it
 
 - **Website:** [zapmatte.com](https://zapmatte.com) — no install, first 10 seconds free.
-- **Replicate:** `predict.py` + `cog.yaml` (Cog). The hosted Replicate demo takes the first 10 seconds at up to 720p. `deploy/push-replicate.yml` is a GitHub Actions workflow that pushes it (copy it into `.github/workflows/`).
-- **Hugging Face Space:** `hf-space/` is a small Gradio demo (CPU, short clips).
+- **Replicate:** [wsmhj/green-screen-remover](https://replicate.com/wsmhj/green-screen-remover) — hosted demo (first 10 seconds at up to 720p), built from `predict.py` + `cog.yaml` by `.github/workflows/replicate.yml`.
+- **Hugging Face:** [model card](https://huggingface.co/wsmhj/zapmatte-green-screen-remover) and [project page](https://huggingface.co/spaces/wsmhj/green-screen-remover). `hf-space/` holds a Gradio demo you can run on any GPU or paid Space.
 
 ## License
 
