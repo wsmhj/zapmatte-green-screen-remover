@@ -34,7 +34,7 @@ Python 3.10+, ffmpeg (with libvpx and prores_ks) on PATH.
 ```bash
 git clone https://github.com/wsmhj/zapmatte-green-screen-remover
 cd zapmatte-green-screen-remover
-pip install -r requirements.txt
+pip install -r requirements.txt   # or: pip install .  (adds a remove-green-screen command)
 ```
 
 The RVM weights download from GitHub on first run (via `torch.hub`).
