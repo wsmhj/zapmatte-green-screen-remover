@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+.cog/
+*.webm
+*.mov
+*-matte.mp4
+*-bg.mp4

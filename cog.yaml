@@ -1,0 +1,14 @@
+build:
+  gpu: true
+  cuda: "12.1"
+  python_version: "3.11"
+  system_packages:
+    - ffmpeg
+    - libgl1
+    - libglib2.0-0
+  python_packages:
+    - torch==2.5.1
+    - torchvision==0.20.1
+    - opencv-python-headless==4.10.0.84
+    - numpy<2
+predict: "predict.py:Predictor"
